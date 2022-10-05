@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import Gallery from "../Gallery";
 
 function Form() {
   const [meme, setMeme] = useState({
@@ -10,8 +9,9 @@ function Form() {
 
   const [allMemeImage, setAllMemeImage] = useState([]);
   useEffect(() => {
-    fetch("https://api.imgflip.com/get_memes");
-    ((res) => res.json()).then((data) => setAllMemeImage(data.data.memes));
+    fetch("https://api.imgflip.com/get_memes")
+      .then((res) => res.json())
+      .then((data) => setAllMemeImage(data.data.memes));
   }, []);
 
   function getMemeOnClick() {
